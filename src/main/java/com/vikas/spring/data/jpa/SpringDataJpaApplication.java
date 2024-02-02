@@ -16,7 +16,10 @@ public class SpringDataJpaApplication {
 		System.out.println("inside the Spring run methode");
 		ProfileService profileService=new ProfileService(service);
 //		profileService.addMultipleProfile();
-		profileService.getProfile(1);
+//		profileService.getProfile(1);
+
+		profileService.getNameByFirstLeater("Pune");
+//		profileService.getProfilesStartingWithLetter("vikas");
 		// we can preform crud operation  get , add , update , delete
 		context.close();
 	}

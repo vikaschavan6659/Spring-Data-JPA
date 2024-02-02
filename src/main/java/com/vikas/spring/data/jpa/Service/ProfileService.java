@@ -7,6 +7,7 @@ import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ProfileService {
 
@@ -66,5 +67,28 @@ public class ProfileService {
             System.out.println("Email: " + profile.getEmail());
             System.out.println("Address: " + profile.getAddress());
         }
+    }
+
+    public void getNameByFirstLeater(String str){
+        System.out.println("inside the getNameByFirstLeater");
+        List <Profiles>profilesList =profilesRepo.findByAddress(str);
+//        List<Profiles> profilesStartingWithA = profileService.getProfilesStartingWithLetter("A");
+
+        char value =str.charAt(0);
+
+        profilesList.stream().filter(profiles -> profiles.getName()!=null&& profiles.getName().startsWith(String.valueOf(value)));
+
+        profilesList.forEach(System.out::println);
+
+    }
+
+    public void  getProfilesStartingWithLetter(String letter) {
+        System.out.println("in side getProfilesStartingWithLetter ");
+        List <Profiles>profilesList =profilesRepo.findByName(letter);
+        char val =letter.charAt(0);
+         profilesList.stream()
+                .filter(profile -> profile.getName() != null && profile.getName().startsWith(String.valueOf(val)))
+                .collect(Collectors.toList());
+         profilesList.forEach(System.out::println);
     }
 }

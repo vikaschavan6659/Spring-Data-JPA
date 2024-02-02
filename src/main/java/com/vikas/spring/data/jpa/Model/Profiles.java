@@ -63,4 +63,15 @@ public class Profiles {
     public String getAddress() {
         return address;
     }
+
+    @Override
+    public String toString() {
+        return "Profiles{" +
+                "userId=" + userId +
+                ", name='" + name + '\'' +
+                ", contactNo='" + contactNo + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }
