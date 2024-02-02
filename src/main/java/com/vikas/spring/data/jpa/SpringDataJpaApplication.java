@@ -18,8 +18,14 @@ public class SpringDataJpaApplication {
 //		profileService.addMultipleProfile();
 //		profileService.getProfile(1);
 
-		profileService.getNameByFirstLeater("Pune");
+//		profileService.getNameByFirstLeater("Pune");
 //		profileService.getProfilesStartingWithLetter("vikas");
+
+//		profileService.getNameLikdeAndAddress("A","Pune");
+
+
+        profileService.getSalary(55000.00);
+
 		// we can preform crud operation  get , add , update , delete
 		context.close();
 	}

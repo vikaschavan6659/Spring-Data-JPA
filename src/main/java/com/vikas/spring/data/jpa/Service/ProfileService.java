@@ -28,6 +28,7 @@ public class ProfileService {
         profiles.setContactNo("7083809252");
         profiles.setEmail("vikas.chavan@sumasoft.net");
         profiles.setAddress("Pune");
+        profiles.setSalary(50000.00);
         profilesList.add(profiles);
 
         Profiles profiles1=new Profiles();
@@ -36,6 +37,7 @@ public class ProfileService {
         profiles1.setContactNo("9405030090");
         profiles1.setEmail("aarya.soman@sumasoft.net");
         profiles1.setAddress("Pune");
+        profiles1.setSalary(55000.00);
         profilesList.add(profiles1);
 
         Profiles profiles2=new Profiles();
@@ -44,6 +46,7 @@ public class ProfileService {
         profiles2.setContactNo("8529637410");
         profiles2.setEmail("pritam@gmail.com");
         profiles2.setAddress("Pune");
+        profiles2.setSalary(12500.00);
         profilesList.add(profiles2);
 
         Profiles profiles3=new Profiles();
@@ -52,6 +55,7 @@ public class ProfileService {
         profiles3.setContactNo("1234567890");
         profiles3.setEmail("suvarna@gmail.com");
         profiles3.setAddress("Pune");
+        profiles3.setSalary(456231.00);
         profilesList.add(profiles3);
 
         profilesRepo.saveAll(profilesList);
@@ -90,5 +94,21 @@ public class ProfileService {
                 .filter(profile -> profile.getName() != null && profile.getName().startsWith(String.valueOf(val)))
                 .collect(Collectors.toList());
          profilesList.forEach(System.out::println);
+    }
+
+    public void getNameLikdeAndAddress(String name , String address){
+        List<Profiles> profilesList = profilesRepo.findByNameLikeAndAddress(name ,address);
+        profilesList.forEach(System.out::println);
+    }
+    public void getNameAndAddress(String name , String address){
+        List<Profiles> profilesList = profilesRepo.findByNameAndAddress(name ,address);
+        profilesList.forEach(System.out::println);
+    }
+
+    public void getSalary(double value){
+
+        List<Profiles>profilesList=profilesRepo.findBySalaryGreatherThanEqual(value);
+        profilesList.forEach(System.out::println);
+
     }
 }

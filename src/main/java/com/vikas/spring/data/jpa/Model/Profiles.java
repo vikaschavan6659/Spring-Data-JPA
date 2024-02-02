@@ -22,7 +22,16 @@ public class Profiles {
     private String email;
 
     private String address;
+    private Double salary;
 
+
+    public Double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Double salary) {
+        this.salary = salary;
+    }
 
     public void setUserId(int userId) {
         this.userId = userId;
@@ -72,6 +81,7 @@ public class Profiles {
                 ", contactNo='" + contactNo + '\'' +
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
+                ", address='" + salary + '\'' +
                 '}';
     }
 }
