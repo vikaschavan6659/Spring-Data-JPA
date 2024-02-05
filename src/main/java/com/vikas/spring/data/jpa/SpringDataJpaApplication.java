@@ -24,7 +24,19 @@ public class SpringDataJpaApplication {
 //		profileService.getNameLikdeAndAddress("A","Pune");
 
 
-        profileService.getSalary(55000.00);
+//        profileService.getSalary(55000.00);
+
+//		profileService.getAllData();
+
+		Profiles profiles=new Profiles();
+		profiles.setUserId(9);
+		profiles.setName("AshokIt");
+		profiles.setContactNo("7083809252");
+		profiles.setEmail("Ashok.IT@gmail.com");
+		profiles.setAddress("Pune");
+		profiles.setSalary(5550000.00);
+
+		profileService.insertProfile(profiles);
 
 		// we can preform crud operation  get , add , update , delete
 		context.close();

@@ -3,9 +3,10 @@ package com.vikas.spring.data.jpa.Service;
 import com.vikas.spring.data.jpa.Model.Profiles;
 import com.vikas.spring.data.jpa.Reopsitory.ProfilesRepo;
 
-import java.sql.Array;
+import javax.swing.event.ListDataEvent;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -109,6 +110,27 @@ public class ProfileService {
 
         List<Profiles>profilesList=profilesRepo.findBySalaryGreatherThanEqual(value);
         profilesList.forEach(System.out::println);
+
+    }
+
+    public void getAllData (){
+        List<Profiles>profilesList= profilesRepo.findAll();
+        profilesList.forEach(System.out::println);
+    }
+
+//    public void deleteProfiles(int id){
+//        Profiles profilesList=profilesRepo.deleteById(id);
+//        return "";
+//    }
+
+    public void getbyAddress(String address){
+        List<Profiles>profilesList  = profilesRepo.findByAddres(address);
+        profilesList.forEach(System.out::println);
+    }
+
+    public void  insertProfile(Profiles profiles){
+        System.out.println("inside the insertProfile");
+        profilesRepo.insertProfileData(profiles.getUserId(),profiles.getName(),profiles.getContactNo(),profiles.getEmail(),profiles.getAddress(),profiles.getSalary());
 
     }
 }
